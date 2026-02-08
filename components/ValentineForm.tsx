@@ -28,7 +28,12 @@ export const ValentineForm: React.FC<ValentineFormProps> = ({ onSubmit }) => {
     }
   };
 
-  const handleNext = () => {
+  const handleNext = (e: React.MouseEvent | React.TouchEvent) => {
+    if (answer === 'Ew, no!') {
+      e.preventDefault();
+      handleRunaway();
+      return;
+    }
     if (answer === 'Yes!') {
       setStep(2);
     }
@@ -89,6 +94,7 @@ export const ValentineForm: React.FC<ValentineFormProps> = ({ onSubmit }) => {
                 type="button"
                 onClick={handleNext}
                 onMouseEnter={handleRunaway}
+                onTouchStart={handleRunaway}
                 disabled={!answer}
                 style={{
                   transform: `translate(${btnPos.x}px, ${btnPos.y}px)`,
