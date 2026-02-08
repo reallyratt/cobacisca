@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Copy, Check, RefreshCcw, Heart } from 'lucide-react';
+import { Copy, Check, RefreshCcw } from 'lucide-react';
 
 interface SummaryProps {
   answer: string;
@@ -28,12 +28,16 @@ export const Summary: React.FC<SummaryProps> = ({ answer, reason, onReset }) => 
   const isPositive = answer === 'Yes!';
 
   return (
-    <div className="space-y-8 animate-in fade-in zoom-in duration-500">
+    <div className="space-y-8 animate-slide-up">
       <header className="text-center space-y-2">
-        <div className={`mx-auto w-16 h-16 ${isPositive ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-600'} rounded-full flex items-center justify-center shadow-inner mb-4`}>
-          {isPositive ? <Heart className="w-8 h-8 fill-current animate-pulse-fast" /> : <div className="text-3xl">😢</div>}
+        <div className={`mx-auto w-16 h-16 ${isPositive ? 'bg-gradient-to-tr from-amber-400 to-amber-600' : 'bg-gray-100'} rounded-full flex items-center justify-center shadow-inner mb-4`}>
+          {isPositive ? (
+            <span className="text-3xl filter drop-shadow-sm animate-pulse-fast">🍫</span>
+          ) : (
+            <div className="text-3xl">😢</div>
+          )}
         </div>
-        <h2 className="text-2xl font-bold text-gray-800">3. Summary of the form</h2>
+        <h2 className="text-2xl font-bold text-gray-800">It's a Date!</h2>
         <p className="text-gray-500 text-sm">Here is what you decided</p>
       </header>
 

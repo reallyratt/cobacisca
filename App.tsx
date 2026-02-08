@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { ValentineForm } from './components/ValentineForm';
 import { Summary } from './components/Summary';
-import { HeartBackground } from './components/HeartBackground';
 
 export type FormData = {
   answer: string;
@@ -26,11 +25,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen w-full relative flex items-center justify-center p-4">
-      <HeartBackground />
-      
-      <main className="w-full max-w-md z-10 relative">
-        <div className="glass-panel rounded-3xl shadow-xl shadow-valentine-200/50 p-8 transition-all duration-500 ease-in-out transform hover:scale-[1.01]">
+    <div className="min-h-screen w-full relative flex items-center justify-center p-4 bg-gradient-to-br from-pink-50 via-white to-valentine-100">
+      <main className="w-full max-w-md z-10 relative animate-fade-in">
+        <div className="glass-panel rounded-3xl shadow-xl shadow-valentine-200/50 p-8 transition-all duration-500 ease-in-out">
           {view === 'form' ? (
             <ValentineForm onSubmit={handleFormSubmit} />
           ) : (
@@ -42,8 +39,8 @@ export default function App() {
           )}
         </div>
         
-        <footer className="mt-8 text-center text-valentine-800/60 text-sm font-semibold">
-          Made with ❤️ for Cay
+        <footer className="mt-8 text-center text-valentine-800/60 text-sm font-semibold animate-slide-up">
+          Personalized for Cey
         </footer>
       </main>
     </div>
